@@ -17,9 +17,9 @@ public class SinglyLinkedList {
 	public static void main(String[] args){
 	//Create A LinkedList
 
-	ListNode head = new ListNode(56);
+	ListNode head = new ListNode(70);
 	ListNode second = new ListNode(30);
-	ListNode third = new ListNode(70);
+	ListNode third = new ListNode(56);
 
 	}
 }
