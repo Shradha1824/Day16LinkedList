@@ -43,6 +43,21 @@ public class Queue {
 		rear = temp;
 		length++;
 	}
+
+	public int dequeue() {
+		if(isEmpty()) {
+			throw new NoSuchElementException("Queue is already empty");
+		}
+		
+		int result = front.data;
+		front = front.next;
+		if(front == null) {
+			rear = null;
+		}
+		length--;
+		return result;
+	}
+	
 	public void print() {
 		if(isEmpty()) {
 			return;
@@ -61,6 +76,11 @@ public class Queue {
 		queue.enqueue(56);
 		queue.enqueue(30);
 		queue.enqueue(70);
+		
+		queue.print();
+
+		queue.dequeue();
+		queue.dequeue();
 		
 		queue.print();
 	}
