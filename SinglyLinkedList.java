@@ -34,8 +34,29 @@ public class SinglyLinkedList {
 		System.out.print("null");
 	}
 
+	public void insertAtPosition(int position, int value){
+		// 56 -- 70
+		// 56 --> 30 -->70
+		ListNode node = new ListNode(value);
 
-	public static void createLikedList(String[] args){
+		if(position == 1){
+			newNode.next = head;
+			head = newNode;
+		} else {
+			ListNode previous = head;
+			int count = 1; // position - 1
+
+			while(count < position - 1){
+				previous = previous.next;
+				count++;
+			}
+
+			ListNode current = previous.next;
+			previous.next = newNode;
+			return head;
+		}
+	}
+	public static void main(String[] args){
 	//Create A LinkedList
 
 	ListNode head = new ListNode(56);
@@ -45,15 +66,11 @@ public class SinglyLinkedList {
 	head = first;
 	first.next = second;
 	second.next = third;
-
-	public static void main(String[] args){
 	
-	    SinglyLinkedList sll = new SinglyLinkedList();
-	    sll.display();
-	    System.out.println();
-            sll.Append(first, 30);
-	    sll.display();
-	    sll.Append(second, 70);
-	    sll.display();
+	SinglyLinkedList sll = new SinglyLinkedList();
+	sll.display(head);
+	System.out.println();
+	head = sll.inserAtPosition(2, 30);
+	sll.display();
 	}
 }
