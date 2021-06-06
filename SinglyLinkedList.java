@@ -67,22 +67,44 @@ public class SinglyLinkedList {
 		return temp;
 	}
 
+	public ListNode deleteLast() {
+		if(head == null) {
+			return head;
+		}
+
+		if(head.next == null) {
+			ListNode temp = head;
+			head = head.next;
+			return temp;
+		}
+
+		ListNode current = head;
+		ListNode previous = null;
+
+		while(current.next != null) {
+			previous = current;
+			current = current.next;
+		}
+		previous.next = null; // break the chain
+		return current;
+	}
+
 	public static void main(String[] args){
 	//Create A LinkedList
 	
-	SinglyLinkedList sll = new SinglyLinkedList();
+		SinglyLinkedList sll = new SinglyLinkedList();
 
-	ListNode head = new ListNode(56);
-	ListNode second = new ListNode(30);
-	ListNode third = new ListNode(70);
+		ListNode head = new ListNode(56);
+		ListNode second = new ListNode(30);
+		ListNode third = new ListNode(70);
 
-	head = first;
-	first.next = second;
-	second.next = third;
-	
-	sll.display();
-	ListNode first1 = sll.deleteFirst();
-	System.out.println("");
-	sll.display();
+		head = first;
+		first.next = second;
+		second.next = third;
+
+		sll.display();
+		ListNode last = sll.deleteLast();
+		System.out.println("");
+		sll.display();
 	}
 }
