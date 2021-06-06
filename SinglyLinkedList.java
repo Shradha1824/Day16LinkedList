@@ -56,8 +56,21 @@ public class SinglyLinkedList {
 			return head;
 		}
 	}
+
+	public ListNode deleteFirst() {
+		if(head == null) {
+			return null;
+		}
+		ListNode temp = head;
+		head = head.next;
+		temp.next = null;
+		return temp;
+	}
+
 	public static void main(String[] args){
 	//Create A LinkedList
+	
+	SinglyLinkedList sll = new SinglyLinkedList();
 
 	ListNode head = new ListNode(56);
 	ListNode second = new ListNode(30);
@@ -67,10 +80,9 @@ public class SinglyLinkedList {
 	first.next = second;
 	second.next = third;
 	
-	SinglyLinkedList sll = new SinglyLinkedList();
-	sll.display(head);
-	System.out.println();
-	head = sll.inserAtPosition(2, 30);
+	sll.display();
+	ListNode first1 = sll.deleteFirst();
+	System.out.println("");
 	sll.display();
 	}
 }
