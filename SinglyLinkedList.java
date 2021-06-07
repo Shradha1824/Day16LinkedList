@@ -103,6 +103,25 @@ public class SinglyLinkedList {
 		return slowPtr;
 	}
 
+	public ListNode delete(int position){
+		// position is valid and starting from 1
+		// 56 -> 30 -> 70 -> null
+		if(position == 1){
+			head = head.next;
+		} else {
+			ListNode previous = head;
+			int count = 1;
+			while(count < position - 1){
+				previous = previous.next;
+				count++;
+			}
+
+			ListNode current = previous.next;
+			previous.next = current.next;
+		}
+		return null;
+	}
+
 	public static void main(String[] args){
 	//Create A LinkedList
 	
@@ -116,9 +135,10 @@ public class SinglyLinkedList {
 		first.next = second;
 		second.next = third;
 
-		sll.display();
-		System.out.println();
 		third = sll.insertAtPosition(head, 3, 40);
+		sll.display();
+		third = sll.delete(3);
+		System.out.println("\n");
 		sll.display();
 	}
 }
