@@ -89,6 +89,20 @@ public class SinglyLinkedList {
 		return current;
 	}
 
+	public ListNode getMiddleNode() {
+		if(head == null) {
+			return null;
+		}
+		ListNode slowPtr = head;
+		ListNode fastPtr = head;
+
+		while(fastPtr != null && fastPtr.next != null) {
+			slowPtr = slowPtr.next;
+			fastPtr = fastPtr.next.next;
+		}
+		return slowPtr;
+	}
+
 	public static void main(String[] args){
 	//Create A LinkedList
 	
@@ -100,11 +114,9 @@ public class SinglyLinkedList {
 
 		head = first;
 		first.next = second;
-		second.next = third;
+		second.next = third;	
 
-		sll.display();
-		ListNode last = sll.deleteLast();
-		System.out.println("");
-		sll.display();
+		ListNode middleNode = sll.getMiddleNode();
+		System.out.println("middlenode is " +  middleNode.data);
 	}
 }
