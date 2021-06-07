@@ -34,7 +34,7 @@ public class SinglyLinkedList {
 		System.out.print("null");
 	}
 
-	public void insertAtPosition(int position, int value){
+	public ListNode insertAtPosition(ListNode head, int position, int value){
 		// 56 -- 70
 		// 56 --> 30 -->70
 		ListNode node = new ListNode(value);
@@ -114,9 +114,11 @@ public class SinglyLinkedList {
 
 		head = first;
 		first.next = second;
-		second.next = third;	
+		second.next = third;
 
-		ListNode middleNode = sll.getMiddleNode();
-		System.out.println("middlenode is " +  middleNode.data);
+		sll.display();
+		System.out.println();
+		third = sll.insertAtPosition(head, 3, 40);
+		sll.display();
 	}
 }
